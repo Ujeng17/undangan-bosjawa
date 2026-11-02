@@ -1,0 +1,6 @@
+@media screen and (max-width: 480px) {
+    .gold-border-frame { inset: 8px; }
+    section { padding: 60px 18px 40px; }
+    .cover-title { font-size: 1.8rem; }
+    .cover-center { width: 140px; height: 140px; }
+}

@@ -1,0 +1,578 @@
+:root {
+    --bg-black: #0A0A0A;
+    --card-dark: rgba(22, 22, 22, 0.85);
+    --border-dark: rgba(255, 255, 255, 0.15);
+    --text-white: #FFFFFF;
+    --text-muted: #CCCCCC;
+    --gold-accent: #D4AF37;
+    --font-serif: 'Cinzel', serif;
+    --font-script: 'Great Vibes', cursive;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
+    font-family: var(--font-sans);
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.95);
+    overflow-x: hidden;
+    padding-bottom: 75px;
+    background-color: var(--bg-black);
+}
+
+/* FIXED BLURRED BACKGROUND PHOTO FOR INSIDE CONTENT */
+.fixed-blurred-bg {
+    position: fixed;
+    inset: 0;
+    max-width: 430px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.fixed-blurred-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(14px) scale(1.1);
+}
+
+.bg-dark-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(5,5,5,0.92) 100%);
+}
+
+/* COVER SECTION */
+#cover-section {
+    position: fixed;
+    inset: 0;
+    max-width: 430px;
+    margin: 0 auto;
+    z-index: 99999;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#cover-section.opened {
+    transform: translateY(-100%);
+}
+
+.cover-bg { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1;
+}
+
+.cover-bg img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.cover-overlay-dark { 
+    position: absolute; 
+    inset: 0; 
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(10,10,10,0.95) 100%); 
+    z-index: 2;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 20px 40px;
+    text-align: center;
+}
+
+.tag-sub { font-family: var(--font-serif); font-size: 0.75rem; letter-spacing: 3px; color: var(--text-muted); }
+.couple-title { font-family: var(--font-script); font-size: 3.8rem; color: #FFF; font-weight: normal; margin-top: 5px; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
+.wedding-date { font-family: var(--font-serif); font-size: 0.85rem; letter-spacing: 3px; color: var(--text-muted); }
+
+.cover-bottom { width: 100%; display: flex; flex-direction: column; gap: 15px; }
+
+.guest-box-transparent {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 14px;
+    border-radius: 20px;
+}
+
+.guest-box-transparent small { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 1px; display: block; }
+.guest-box-transparent h4 { font-family: var(--font-serif); font-size: 1.1rem; color: #FFF; margin-top: 2px; }
+.guest-loc { font-size: 0.75rem; color: var(--text-muted); }
+
+.btn-open-transparent {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: #FFF;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-open-transparent:hover { transform: scale(1.05); background: rgba(255,255,255,0.3); }
+
+/* SECTIONS COMMON */
+section {
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.section-title { text-align: center; margin-bottom: 25px; }
+.section-title h2 { font-family: var(--font-serif); font-size: 1.5rem; color: #FFF; letter-spacing: 1px; }
+.sub-title { font-size: 0.75rem; letter-spacing: 2px; color: var(--text-muted); }
+
+.quote-header { text-align: center; margin-bottom: 25px; }
+.salam-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--gold-accent);
+    font-weight: 600;
+}
+.ornament-divider { color: var(--gold-accent); margin: 5px 0 12px; }
+.quote-intro { font-size: 0.82rem; line-height: 1.6; color: var(--text-muted); }
+
+/* BIG DATE BOX */
+.big-date-box {
+    background: var(--card-dark);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-dark);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.month-year { font-family: var(--font-serif); font-size: 0.9rem; letter-spacing: 3px; color: var(--text-muted); }
+.big-day { font-family: var(--font-serif); font-size: 4.5rem; font-weight: bold; color: #FFF; line-height: 1; margin: 10px 0; }
+.day-time { font-size: 0.85rem; letter-spacing: 2px; color: #FFF; margin-bottom: 5px; }
+.time-range { font-size: 0.78rem; color: var(--gold-accent); margin-bottom: 15px; }
+
+.location-summary {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-dark);
+    padding-top: 15px;
+    margin-bottom: 18px;
+}
+
+.btn-calendar {
+    background: #FFF;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-calendar:hover { transform: scale(1.05); }
+
+.quote-box-dark {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border: 1px dashed var(--border-dark);
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.quote-icon { font-size: 1.1rem; color: var(--gold-accent); margin-bottom: 8px; }
+.quote-text { font-style: italic; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+.quote-box-dark small { display: block; margin-top: 8px; font-size: 0.7rem; color: #FFF; }
+
+/* MEMPELAI ROW */
+.mempelai-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--card-dark);
+    backdrop-filter: blur(10px);
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.circle-photo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--border-dark);
+    flex-shrink: 0;
+}
+
+.circle-photo img { width: 100%; height: 100%; object-fit: cover; }
+.mempelai-info h3 { font-family: var(--font-serif); font-size: 1.1rem; color: #FFF; margin-bottom: 4px; }
+.mempelai-info .parents { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 4px; }
+.mempelai-info small { font-size: 0.7rem; color: var(--gold-accent); display: block; }
+
+.center-divider {
+    text-align: center;
+    font-family: var(--font-script);
+    font-size: 3rem;
+    color: var(--text-muted);
+    margin: 8px 0;
+}
+
+/* EVENT & COUNTDOWN */
+.event-detail-box {
+    background: var(--card-dark);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-dark);
+    padding: 25px 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.event-grid { display: flex; justify-content: space-around; margin-bottom: 22px; }
+.event-col h4 { font-family: var(--font-serif); font-size: 0.9rem; color: var(--gold-accent); margin-bottom: 6px; }
+.event-col p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 3px; }
+
+.countdown-row { display: flex; justify-content: center; gap: 8px; }
+.cd-box {
+    background: rgba(0,0,0,0.6);
+    border: 1px solid var(--border-dark);
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cd-box span { font-size: 1.1rem; font-weight: bold; color: #FFF; }
+.cd-box small { font-size: 0.55rem; color: var(--text-muted); }
+
+/* MAPS & DRESSCODE */
+.maps-section { text-align: center; margin-top: 30px; }
+.maps-section h3 { font-family: var(--font-serif); color: #FFF; margin: 4px 0 2px; }
+.maps-section p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px; }
+.maps-preview { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-dark); margin-bottom: 12px; }
+
+.btn-maps-dark {
+    background: transparent;
+    border: 1px solid #FFF;
+    color: #FFF;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-maps-dark:hover { background: #FFF; color: #000; }
+
+.dresscode-box {
+    background: var(--card-dark);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-dark);
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dresscode-box h4 { font-size: 0.75rem; letter-spacing: 1px; color: var(--gold-accent); margin-bottom: 4px; }
+.dresscode-box p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; }
+.dress-badge { display: inline-block; background: rgba(0,0,0,0.5); border: 1px solid var(--border-dark); padding: 6px 14px; border-radius: 15px; font-size: 0.75rem; color: #FFF; }
+
+/* GALERI MASONRY AESTHETIC MODERN */
+.gallery-quote { font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-top: 5px; }
+
+.gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.g-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.15);
+    height: 140px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.g-card.tall { height: 200px; }
+.g-card.large { grid-column: span 2; height: 190px; }
+
+.g-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.g-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--gold-accent);
+    font-size: 1.2rem;
+}
+
+.g-card:hover img { transform: scale(1.1); }
+.g-card:hover .g-overlay { opacity: 1; }
+
+/* MODAL LIGHTBOX */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content { max-width: 90%; max-height: 80vh; border-radius: 8px; border: 1px solid var(--gold-accent); }
+.close-modal { position: absolute; top: 20px; right: 25px; color: #FFF; font-size: 2rem; cursor: pointer; }
+
+/* BANK MANDIRI CARD & GIFT */
+.gift-box {
+    background: var(--card-dark);
+    backdrop-filter: blur(10px);
+    padding: 22px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--border-dark);
+    text-align: center;
+}
+
+.gift-box h2 { font-family: var(--font-serif); font-size: 1.3rem; color: #FFF; margin-bottom: 6px; }
+.gift-desc { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5; }
+
+.bank-card-mandiri {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 14px;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.bank-card-header { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+.mandiri-logo-img { height: 28px; object-fit: contain; }
+.card-acc-number { font-family: var(--font-serif); font-size: 1.25rem; font-weight: bold; color: #FFF; letter-spacing: 1px; margin-bottom: 4px; }
+.card-acc-holder { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 15px; }
+
+.btn-copy-mandiri {
+    background: #FFF;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* WISHES & CLOSING */
+.wishes-form {
+    background: var(--card-dark);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border-dark);
+    text-align: center;
+}
+
+.wishes-form input, .wishes-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid var(--border-dark);
+    color: #FFF;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    background: #FFF;
+    color: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.wishes-list { margin-top: 15px; }
+.wish-card {
+    background: var(--card-dark);
+    backdrop-filter: blur(8px);
+    padding: 10px 14px;
+    border-left: 2px solid #FFF;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.wish-card h5 { font-size: 0.8rem; color: #FFF; }
+.wish-card p { font-size: 0.75rem; color: var(--text-muted); }
+
+.closing-box {
+    background: var(--card-dark);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-dark);
+    padding: 22px 18px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.closing-box h2 { font-family: var(--font-serif); color: #FFF; margin-bottom: 6px; }
+.thanks-text { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
+.salam-closing { font-family: var(--font-serif); font-size: 0.82rem; color: var(--gold-accent); }
+
+.line-dashed { border-top: 1px dashed var(--border-dark); margin: 15px 0; }
+
+.tum-container h4 {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--gold-accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.tum-container ul { list-style: none; }
+.tum-container li {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    line-height: 1.4;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+}
+
+/* FLOATING NAV - CLEAN TRANSPARENT STYLE */
+.bottom-nav {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    background: transparent; /* MENGHILANGKAN BACKGROUND KOTAK HITAM */
+    backdrop-filter: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* JARAK ANTAR IKON */
+    z-index: 8000;
+}
+
+.nav-item {
+    color: rgba(255, 255, 255, 0.7);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.nav-item.active {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #FFFFFF;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.nav-item:hover {
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+
+.music-btn {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    color: #FFF;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9000;
+    cursor: pointer;
+}
+
+.music-btn.visible,
+.music-btn.active { display: flex; }
+.music-btn.active { animation: spin 8s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+footer h3 { font-family: var(--font-serif); color: #FFF; margin-bottom: 4px; }

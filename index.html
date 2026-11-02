@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Bagas & Erlia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- FIXED BLURRED BACKGROUND PHOTO FOR INSIDE CONTENT -->
+        <div class="fixed-blurred-bg">
+            <img src="assets/image/bagas-erlia.JPG" alt="Background Mempelai">
+            <div class="bg-dark-overlay"></div>
+        </div>
+
+        <!-- 1. COVER / DEPAN UNDANGAN -->
+        <div id="cover-section">
+            <div class="cover-bg">
+                <img src="assets/image/bagas-erlia.JPG" alt="Bagas & Erlia">
+                <div class="cover-overlay-dark"></div>
+            </div>
+
+            <div class="cover-content">
+                <div class="cover-top">
+                    <p class="tag-sub">UNDANGAN PERNIKAHAN</p>
+                    <h1 class="couple-title">Bagas & Erlia</h1>
+                    <p class="wedding-date">08 . 11 . 2026</p>
+                </div>
+
+                <div class="cover-bottom">
+                    <div class="guest-box-transparent">
+                        <small>Kepada Yth. Bapak/Ibu/Saudara/i:</small>
+                        <h4 id="guest-name">Tamu Undangan</h4>
+                        <span class="guest-loc">Di Tempat</span>
+                    </div>
+
+                    <button class="btn-open-transparent" onclick="openInvitation()">
+                        <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AUDIO CONTROL -->
+        <div class="music-btn" id="musicToggle" onclick="toggleAudio()">
+            <i class="fa-solid fa-compact-disc"></i>
+        </div>
+        <audio id="bgMusic" src="audio/denny-caknan-feat-bella-bonita-sinarengan-official-video_Trpi8viW.mp3" loop preload="auto"></audio>
+
+        <!-- MAIN CONTENT -->
+
+        <!-- 2. BAGIAN PEMBUKA -->
+        <section id="opening">
+            <div class="quote-header" data-aos="fade-down" data-aos-duration="1000">
+                <h2 class="salam-title">Assalamu’alaikum Wr. Wb.</h2>
+                <div class="ornament-divider">❖</div>
+                <p class="quote-intro">
+                    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara pernikahan putra-putri kami:
+                </p>
+            </div>
+
+            <!-- KARTU TANGGAL UTAMA -->
+            <div class="big-date-box" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="month-year">NOVEMBER</div>
+                <div class="big-day">08</div>
+                <div class="day-time">2026 • MINGGU</div>
+                <div class="time-range">Pukul 08.00 WIB s/d Selesai</div>
+
+                <div class="location-summary">
+                    <i class="fa-solid fa-location-dot"></i> GOR Desa Cicalengka Wetan, Kec. Cicalengka, Kab. Bandung
+                </div>
+
+                <a href="https://calendar.google.com" target="_blank" class="btn-calendar">
+                    <i class="fa-regular fa-calendar-plus"></i> Simpan ke Kalender
+                </a>
+            </div>
+
+            <!-- KUTIPAN QS. AR-RUM: 21 -->
+            <div class="quote-box-dark" data-aos="fade-up" data-aos-duration="1000">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <p class="quote-text">
+                    "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
+                </p>
+                <small>— QS. Ar-Rum: 21 —</small>
+            </div>
+        </section>
+
+        <!-- 3. INFORMASI MEMPELAI -->
+        <section id="couple">
+            <div class="section-title" data-aos="fade-up">
+                <p class="sub-title">KAMI YANG BERBAHAGIA</p>
+                <h2>Kedua Mempelai</h2>
+            </div>
+
+            <!-- MEMPELAI PRIA -->
+            <div class="mempelai-row" data-aos="fade-right" data-aos-duration="1000">
+                <div class="circle-photo">
+                    <img src="assets/image/bagas-sendiri.JPG" alt="Bagas Aldyansyah">
+                </div>
+                <div class="mempelai-info">
+                    <h3>Bagas Aldyansyah</h3>
+                    <p class="parents">Putra Pertama dari Bapak & Ibu:<br><strong>Bpk. Barsono</strong> & <strong>Ibu Sanisem</strong></p>
+                    <small><i class="fa-solid fa-location-dot"></i> Kp. Kebon Kapas RT 03 RW 10, Desa Waluya, Cicalengka</small>
+                </div>
+            </div>
+
+            <div class="center-divider" data-aos="zoom-in" data-aos-duration="800">&</div>
+
+            <!-- MEMPELAI WANITA -->
+            <div class="mempelai-row" data-aos="fade-left" data-aos-duration="1000">
+                <div class="circle-photo">
+                    <img src="assets/image/erlia-sendiri.JPG" alt="Erlia">
+                </div>
+                <div class="mempelai-info">
+                    <h3>Erlia</h3>
+                    <p class="parents">Putri dari Bapak & Ibu:<br><strong>Bpk. Iwan</strong> & <strong>Ibu Sumiati Nenden</strong></p>
+                    <small><i class="fa-solid fa-location-dot"></i> Kp. Kaca-kaca Wetan RT 03 RW 15, Cicalengka Wetan</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. DETAIL ACARA & COUNTDOWN -->
+        <section id="event">
+            <div class="section-title" data-aos="fade-down">
+                <span class="tag-sub">RANGKAIAN ACARA</span>
+                <h2>Waktu & Tempat</h2>
+            </div>
+
+            <div class="event-detail-box" data-aos="flip-up" data-aos-duration="1000">
+                <div class="event-grid">
+                    <div class="event-col">
+                        <h4>AKAD NIKAH</h4>
+                        <p><i class="fa-regular fa-calendar"></i> Minggu, 08 Nov 2026</p>
+                        <p><i class="fa-regular fa-clock"></i> Pukul 08:00 WIB</p>
+                    </div>
+                    <div class="event-col">
+                        <h4>RESEPSI</h4>
+                        <p><i class="fa-regular fa-calendar"></i> Minggu, 08 Nov 2026</p>
+                        <p><i class="fa-regular fa-clock"></i> 09:00 - 15:00 WIB</p>
+                    </div>
+                </div>
+
+                <!-- COUNTDOWN BOXES -->
+                <div class="countdown-row">
+                    <div class="cd-box"><span id="days">0</span><small>HARI</small></div>
+                    <div class="cd-box"><span id="hours">0</span><small>JAM</small></div>
+                    <div class="cd-box"><span id="minutes">0</span><small>MENIT</small></div>
+                    <div class="cd-box"><span id="seconds">0</span><small>DETIK</small></div>
+                </div>
+            </div>
+
+            <!-- PETA LOKASI PRESISI -->
+            <div class="maps-section" data-aos="fade-up" data-aos-duration="1000">
+                <span class="tag-sub">GOOGLE MAPS</span>
+                <h3>Lokasi Resepsi</h3>
+                <p>GOR Desa Cicalengka Wetan, Kab. Bandung, Jawa Barat</p>
+
+                <div class="maps-preview">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.364239857317!2d107.83584831477317!3d-6.978082994958941!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c93540c9d7a1%3A0xa6bf888636735e0!2sCicalengka%20Wetan!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid" width="100%" height="220" style="border:0; filter: invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <a href="https://maps.app.goo.gl/1TLosPSQjY7BfVp86" target="_blank" class="btn-maps-dark">
+                    <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps Navigasi
+                </a>
+            </div>
+
+            <!-- DRESS CODE -->
+            <div class="dresscode-box" data-aos="zoom-in" data-aos-duration="800">
+                <h4><i class="fa-solid fa-shirt"></i> DRESS CODE / TEMA PAKAIAN</h4>
+                <p>Tamu undangan diimbau menggunakan pakaian bernuansa:</p>
+                <div class="dress-badge">Batik / Earthy Tones / Bebas Rapi</div>
+            </div>
+        </section>
+
+        <!-- GALERI FOTO ELEGANT MASONRY AESTHETIC -->
+        <section id="gallery">
+            <div class="section-title" data-aos="fade-down">
+                <span class="tag-sub">GALERI</span>
+                <h2>Galeri Momen</h2>
+                <p class="gallery-quote">"Setiap foto menyimpan kisah kebahagiaan kami yang tak terhapus oleh waktu..."</p>
+            </div>
+
+            <div class="gallery-masonry">
+                <div class="g-card large" data-aos="fade-up" onclick="openModal('assets/image/bagas-erlia1.JPG')">
+                    <img src="assets/image/bagas-erlia1.JPG" alt="Galeri Foto 1">
+                    <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+                </div>
+                <div class="g-card tall" data-aos="fade-up" data-aos-delay="100" onclick="openModal('assets/image/bagas-erlia2.JPG')">
+                    <img src="assets/image/bagas-erlia2.JPG" alt="Galeri Foto 2">
+                    <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+                </div>
+                <div class="g-card tall" data-aos="fade-up" data-aos-delay="200" onclick="openModal('assets/image/bagas-erlia3.JPG')">
+                    <img src="assets/image/bagas-erlia3.JPG" alt="Galeri Foto 3">
+                    <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+                </div>
+                <div class="g-card large" data-aos="fade-up" data-aos-delay="100" onclick="openModal('assets/image/bagas-erlia4.JPG')">
+                    <img src="assets/image/bagas-erlia4.JPG" alt="Galeri Foto 4">
+                    <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+                </div>
+                <div class="g-card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('assets/image/bagas-sendiri.JPG')">
+                    <img src="assets/image/bagas-sendiri.JPG" alt="Mempelai Pria">
+                    <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+                </div>
+                <div class="g-card" data-aos="fade-up" data-aos-delay="300" onclick="openModal('assets/image/erlia-sendiri.JPG')">
+                    <img src="assets/image/erlia-sendiri.JPG" alt="Mempelai Wanita">
+                    <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX POPUP MODAL -->
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" id="imgFull">
+        </div>
+
+        <!-- AMPLOP DIGITAL BANK MANDIRI -->
+        <section id="gift">
+            <div class="gift-box" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Amplop Digital / Wedding Gift</h2>
+                <p class="gift-desc">Bagi bapak/ibu/saudara/i yang ingin memberikan tanda kasih secara digital dapat menyalurkannya melalui:</p>
+                
+                <div class="bank-card-mandiri" data-aos="zoom-in-up">
+                    <div class="bank-card-header">
+                        <img src="assets/image/Bank_Mandiri_logo_2016.svg.webp" class="mandiri-logo-img" alt="Bank Mandiri" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg'">
+                    </div>
+                    <div class="card-acc-number" id="mandiri-number">1310024226799</div>
+                    <div class="card-acc-holder">a.n BAGAS ALDYANSYAH</div>
+                    <button class="btn-copy-mandiri" onclick="copyMandiri()">
+                        <i class="fa-solid fa-copy"></i> Salin No. Rekening
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- UCAPAN & DOA TAMU -->
+        <section id="wishes">
+            <div class="section-title" data-aos="fade-down">
+                <h2>Doa & Ucapan Restu</h2>
+            </div>
+
+            <div class="wishes-form" data-aos="fade-up">
+                <input type="text" id="wish-name" placeholder="Nama Anda..." required>
+                <textarea id="wish-message" rows="3" placeholder="Tuliskan ucapan selamat & doa restu..." required></textarea>
+                <button class="btn-submit" onclick="addWish()">Kirim Ucapan</button>
+            </div>
+
+            <div class="wishes-list" id="wishesContainer" data-aos="fade-up">
+                <div class="wish-card">
+                    <h5>Asep & Keluarga</h5>
+                    <p>Selamat menempuh hidup baru untuk Bagas & Erlia! Semoga menjadi keluarga yang sakinah mawaddah warahmah. Aamiin.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PENUTUP & TURUT MENGUNDANG -->
+        <section id="closing">
+            <div class="closing-box" data-aos="zoom-in" data-aos-duration="1000">
+                <h2>Terima Kasih</h2>
+                <p class="thanks-text">
+                    Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.
+                </p>
+
+                <p class="salam-closing">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+
+                <div class="line-dashed"></div>
+
+                <div class="tum-container">
+                    <h4>TURUT MENGUNDANG:</h4>
+                    <ul>
+                        <li>Kel. Besar Alm. Mbah Karyanom & Kel. Besar Alm. Mbah Munari (Banyumas)</li>
+                        <li>Kel. Besar Alm. Kartawireja (Purbalingga)</li>
+                        <li>Kel. Besar Alm. Bapak Endang Sulaiman & Almh. Bu Dedoh serta Keluarga Bu Imas Mastini (Garut)</li>
+                        <li>Kel. Besar Alm. Bapak Mahuud & Bu Ipoh (Tasikmalaya)</li>
+                        <li>Keluarga Besar Bpk. Barsono & Ibu Sanisem</li>
+                        <li>Keluarga Besar Bpk. Iwan & Ibu Sumiati Nenden</li>
+                        <li>Segenap Kasepuhan & Warga Cicalengka</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <h3>Bagas & Erlia</h3>
+            <p>Keluarga Besar Kedua Mempelai</p>
+        </footer>
+
+        <!-- BOTTOM NAV BAR (CLEAN FLOATING ICONS ONLY) -->
+        <nav class="bottom-nav">
+            <a href="#opening" class="nav-item active"><i class="fa-solid fa-house"></i></a>
+            <a href="#couple" class="nav-item"><i class="fa-solid fa-heart"></i></a>
+            <a href="#event" class="nav-item"><i class="fa-solid fa-calendar-days"></i></a>
+            <a href="#gallery" class="nav-item"><i class="fa-solid fa-images"></i></a>
+            <a href="#gift" class="nav-item"><i class="fa-solid fa-credit-card"></i></a>
+        </nav>
+
+    </div>
+
+    <!-- AOS JS SCRIPT -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/wishet.js"></script>
+    <script>
+        AOS.init({
+            once: false,
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+
+        function openModal(src) {
+            document.getElementById("imageModal").style.display = "flex";
+            document.getElementById("imgFull").src = src;
+        }
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        function copyMandiri() {
+            var num = document.getElementById("mandiri-number").innerText;
+            navigator.clipboard.writeText(num);
+            alert("Nomor Rekening Mandiri berhasil disalin: " + num);
+        }
+    </script>
+</body>
+</html>
