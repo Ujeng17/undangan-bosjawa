@@ -20,6 +20,9 @@
 
     <div class="app-container">
         
+        <!-- EFEK GEMERLAP (SPARKLE CONTAINER) -->
+        <div class="sparkles-container" id="sparklesContainer"></div>
+        
         <!-- FIXED BLURRED BACKGROUND PHOTO FOR INSIDE CONTENT -->
         <div class="fixed-blurred-bg">
             <img src="assets/image/bagas-erlia.JPG" alt="Background Mempelai">
@@ -77,7 +80,7 @@
                 <div class="month-year">NOVEMBER</div>
                 <div class="big-day">08</div>
                 <div class="day-time">2026 • MINGGU</div>
-                <div class="time-range">Pukul 08.00 WIB s/d Selesai</div>
+                <div class="time-range">Pukul 09.00 WIB s/d Selesai</div>
 
                 <div class="location-summary">
                     <i class="fa-solid fa-location-dot"></i> GOR Desa Cicalengka Wetan, Kec. Cicalengka, Kab. Bandung
@@ -112,7 +115,7 @@
                 </div>
                 <div class="mempelai-info">
                     <h3>Bagas Aldyansyah</h3>
-                    <p class="parents">Putra Pertama dari Bapak & Ibu:<br><strong>Bpk. Barsono</strong> & <strong>Ibu Sanisem</strong></p>
+                    <p class="parents">Putra Terakhir dari Bapak & Ibu:<br><strong>Bpk. Barsono</strong> & <strong>Ibu Sanisem</strong></p>
                     <small><i class="fa-solid fa-location-dot"></i> Kp. Kebon Kapas RT 03 RW 10, Desa Waluya, Cicalengka</small>
                 </div>
             </div>
@@ -126,7 +129,7 @@
                 </div>
                 <div class="mempelai-info">
                     <h3>Erlia</h3>
-                    <p class="parents">Putri dari Bapak & Ibu:<br><strong>Bpk. Iwan</strong> & <strong>Ibu Sumiati Nenden</strong></p>
+                    <p class="parents">Putri Pertama dari Bapak & Ibu:<br><strong>Bpk. Iwan</strong> & <strong>Ibu Sumiati Nenden</strong></p>
                     <small><i class="fa-solid fa-location-dot"></i> Kp. Kaca-kaca Wetan RT 03 RW 15, Cicalengka Wetan</small>
                 </div>
             </div>
@@ -144,12 +147,12 @@
                     <div class="event-col">
                         <h4>AKAD NIKAH</h4>
                         <p><i class="fa-regular fa-calendar"></i> Minggu, 08 Nov 2026</p>
-                        <p><i class="fa-regular fa-clock"></i> Pukul 08:00 WIB</p>
+                        <p><i class="fa-regular fa-clock"></i> 09:00 - 11:00 WIB</p>
                     </div>
                     <div class="event-col">
                         <h4>RESEPSI</h4>
                         <p><i class="fa-regular fa-calendar"></i> Minggu, 08 Nov 2026</p>
-                        <p><i class="fa-regular fa-clock"></i> 09:00 - 15:00 WIB</p>
+                        <p><i class="fa-regular fa-clock"></i> 11:00 - 15:00 WIB</p>
                     </div>
                 </div>
 
@@ -310,7 +313,7 @@
 
     </div>
 
-    <!-- AOS JS SCRIPT -->
+    <!-- AOS JS SCRIPT & SPARKLES SCRIPT -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/music.js"></script>
     <script src="js/script.js"></script>
@@ -321,6 +324,22 @@
             once: false,
             duration: 800,
             easing: 'ease-in-out'
+        });
+
+        // EFEK GEMERLAP (SPARKLES) GENERATOR
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById("sparklesContainer");
+            const sparklesCount = 25; // Jumlah partikel kelap kelip
+
+            for (let i = 0; i < sparklesCount; i++) {
+                let sparkle = document.createElement("div");
+                sparkle.classList.add("sparkle");
+                sparkle.style.top = Math.random() * 100 + "%";
+                sparkle.style.left = Math.random() * 100 + "%";
+                sparkle.style.animationDelay = (Math.random() * 4) + "s";
+                sparkle.style.animationDuration = (2 + Math.random() * 3) + "s";
+                container.appendChild(sparkle);
+            }
         });
 
         function openModal(src) {
