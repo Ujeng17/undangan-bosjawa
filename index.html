@@ -44,10 +44,22 @@
                 </div>
 
                 <div class="cover-bottom">
-                    <div class="guest-box-transparent">
+                    <!-- KOTAK TAMU UNDANGAN DENGAN MODE EDIT KHUSUS PENGANTIN -->
+                    <div class="guest-box-transparent" id="guest-box">
                         <small>Kepada Yth. Bapak/Ibu/Saudara/i:</small>
+                        
+                        <!-- Tampilan Nama Tamu untuk Penerima Undangan -->
                         <h4 id="guest-name">Tamu Undangan</h4>
                         <span class="guest-loc">Di Tempat</span>
+
+                        <!-- Form Input Nama Tamu yang Muncul Saat Klik Edit -->
+                        <div id="admin-input-box" style="display: none; margin-top: 10px; border-top: 1px dashed rgba(255,255,255,0.2); padding-top: 10px;">
+                            <input type="text" id="input-guest-name" placeholder="Ketik nama tamu di sini..." style="width: 100%; padding: 8px 12px; background: rgba(0,0,0,0.7); border: 1px solid var(--border-dark); color: #FFF; border-radius: 8px; font-size: 0.8rem; text-align: center; outline: none; margin-bottom: 8px;">
+                            
+                            <button onclick="copyGuestWaLink()" style="width: 100%; background: #25D366; color: #FFF; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                <i class="fa-brands fa-whatsapp"></i> Salin Link & Pesan WA
+                            </button>
+                        </div>
                     </div>
 
                     <button class="btn-open-transparent" onclick="openInvitation()">
@@ -329,7 +341,7 @@
         // EFEK GEMERLAP (SPARKLES) GENERATOR
         document.addEventListener("DOMContentLoaded", function() {
             const container = document.getElementById("sparklesContainer");
-            const sparklesCount = 25; // Jumlah partikel kelap kelip
+            const sparklesCount = 25;
 
             for (let i = 0; i < sparklesCount; i++) {
                 let sparkle = document.createElement("div");

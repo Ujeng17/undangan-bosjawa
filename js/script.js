@@ -1,3 +1,15 @@
+// Membaca nama tamu dari URL parameter (?to=NamaTamu atau ?n=NamaTamu)
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    let guestName = urlParams.get('to') || urlParams.get('n');
+    const guestElement = document.getElementById("guest-name");
+
+    if (guestName && guestElement) {
+        guestName = decodeURIComponent(guestName.replace(/\+/g, ' '));
+        guestElement.innerText = guestName;
+    }
+});
+
 // Fungsi membuka undangan saat tombol diklik
 function openInvitation() {
     var coverSection = document.getElementById("cover-section");
@@ -6,26 +18,15 @@ function openInvitation() {
         coverSection.classList.add("opened");
     }
 
-    // Panggil fungsi musik untuk play dari menit 3:41
+    // Panggil fungsi musik untuk play dari detik 221 (menit 3:41)
     if (typeof playAudioOnOpen === 'function') {
         playAudioOnOpen();
     }
 
-    // Refresh animasi AOS setelah efek transisi selesai
-    setTimeout(function() {
+    // Refresh animasi AOS setelah transisi
+    setTimeout(function () {
         if (typeof AOS !== 'undefined') {
             AOS.refresh();
         }
     }, 500);
 }
-
-// Menangkap nama tamu dari parameter URL (contoh: ?to=NamaTamu)
-document.addEventListener("DOMContentLoaded", function() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var guestName = urlParams.get('to') || urlParams.get('n');
-    var guestElement = document.getElementById("guest-name");
-
-    if (guestName && guestElement) {
-        guestElement.innerText = decodeURIComponent(guestName);
-    }
-});

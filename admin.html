@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Link Generator - Bagas & Erlia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background: #0A0A0A; color: #FFF; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px 10px; }
+        .admin-card { width: 100%; max-width: 420px; background: rgba(22, 22, 22, 0.95); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 25px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        h2 { font-size: 1.3rem; color: #D4AF37; text-align: center; margin-bottom: 5px; }
+        p.sub { font-size: 0.78rem; color: #AAA; text-align: center; margin-bottom: 20px; }
+        label { font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; display: block; color: #DDD; }
+        input[type="text"] { width: 100%; padding: 12px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); color: #FFF; border-radius: 8px; font-size: 0.9rem; outline: none; margin-bottom: 15px; }
+        input[type="text"]:focus { border-color: #D4AF37; }
+        .btn-generate { width: 100%; background: #D4AF37; color: #000; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: 0.3s ease; }
+        .btn-generate:hover { background: #F3E5AB; }
+        .result-box { display: none; margin-top: 20px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; }
+        .link-preview-input { width: 100%; padding: 10px; background: rgba(10,10,10,0.9); border: 1px solid rgba(255,255,255,0.15); color: #D4AF37; border-radius: 6px; font-size: 0.78rem; outline: none; margin-bottom: 12px; }
+        .btn-action { display: flex; gap: 10px; }
+        .btn-copy { flex: 1; background: #25D366; color: #FFF; border: none; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.78rem; cursor: pointer; text-align: center; text-decoration: none; }
+        .btn-preview { flex: 1; background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.78rem; cursor: pointer; text-align: center; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-card">
+        <h2><i class="fa-solid fa-link"></i> Generator Link Undangan</h2>
+        <p class="sub">Bagas & Erlia</p>
+
+        <label for="guestName">Ketik Nama Tamu:</label>
+        <input type="text" id="guestName" placeholder="Contoh: Firman" onkeyup="if(event.key === 'Enter') generateLink()">
+
+        <button class="btn-generate" onclick="generateLink()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Buat Link Tamu
+        </button>
+
+        <div class="result-box" id="resultBox">
+            <label>Link Hasil (Siap Dipakai):</label>
+            <input type="text" id="generatedUrl" class="link-preview-input" readonly>
+            
+            <div class="btn-action">
+                <button class="btn-copy" onclick="copyOnlyLink()">
+                    <i class="fa-solid fa-copy"></i> Salin Link Saja
+                </button>
+                <a id="previewLink" href="#" target="_blank" class="btn-preview">
+                    <i class="fa-solid fa-eye"></i> Tes Buka
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateLink() {
+            var name = document.getElementById("guestName").value.trim();
+            if (!name) {
+                alert("Silakan masukkan nama tamunya dulu!");
+                return;
+            }
+
+            var origin = window.location.origin;
+            var path = window.location.pathname.replace("admin.html", "index.html");
+            var fullUrl = origin + path + "?to=" + encodeURIComponent(name);
+
+            document.getElementById("generatedUrl").value = fullUrl;
+            document.getElementById("previewLink").href = fullUrl;
+            document.getElementById("resultBox").style.display = "block";
+        }
+
+        function copyOnlyLink() {
+            var urlInput = document.getElementById("generatedUrl");
+            urlInput.select();
+            urlInput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(urlInput.value);
+            alert("Link khusus nama tamu berhasil disalin!");
+        }
+    </script>
+</body>
+</html>

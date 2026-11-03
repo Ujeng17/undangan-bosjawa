@@ -603,3 +603,17 @@ footer {
     color: var(--text-muted);
 }
 footer h3 { font-family: var(--font-serif); color: #FFF; margin-bottom: 4px; }
+
+.edit-guest-toggle {
+    font-size: 0.65rem;
+    color: var(--gold-accent);
+    cursor: pointer;
+    margin-top: 8px;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.edit-guest-toggle:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
